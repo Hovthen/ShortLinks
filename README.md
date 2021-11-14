@@ -1,5 +1,4 @@
 # ShortLinks
-# 万里无云的短链（ @hovthen's short links ）
 
 市面上已有短网址项目要么对新手不友好，要么添加数据操作繁琐，或不易根据自己喜好返回动态链接。
 本项目可以帮助你更快速的添加键值，且支持对接各类API，只要你会简单的 if...else...; 等基础 PHP 代码即可。
@@ -19,7 +18,7 @@
 	
 2. QQ头像Key
 	
-https://<your-domain>/qq_user/key_[QQNun]
+https://< your-domain >/qq_user/key_[QQNun]
 	
 ### 图片相关
 	
