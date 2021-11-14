@@ -1,8 +1,24 @@
 
-# 万里无云的短链（ @hovthen's short links ）
+# Short Links
 
 市面上已有短网址项目要么对新手不友好，要么添加数据操作繁琐，或不易根据自己喜好返回动态链接。
+
 本项目可以帮助你更快速的添加键值，且支持对接各类API，只要你会简单的 if...else...; 等基础 PHP 代码即可。
+
+如果你需要实现以下功能且只会一些基础代码，那本项目将特别合适：
+
+```need
+    # 指定后缀KEY
+    host.com/baidu => baidu.com
+    # 子城名
+    host.com/blog/hello.html => blog.host.com/hello.html
+    # 动态链接
+    host.com/mail/xxx@gmail => mailto:xxx@gmail.com
+    # 手气不错
+    host.com/random 
+        => one.host.com/two.html
+        => two.host.com/one.html
+```
 
 ## 已实现功能
 
@@ -14,26 +30,28 @@
 
 1. QQ头像
 
-（隐藏QQ）https://< your-domain >/qq_user/head_[QQNun]
-（显示QQ）https://< your-domain >/img_qq/[QQNun]
+（隐藏QQ）https://your.domain.com/qq_user/head_[QQNun]
+
+（显示QQ）https://your.domain.com/img_qq/[QQNun]
     
 2. QQ头像Key
     
-https://< your-domain >/qq_user/key_[QQNun]
+https://your.domain.com/qq_user/key_[QQNun]
     
 ### 图片相关
     
 1. Gravatar 头像
 
-https://< your-domain >/img_gravatar/username@gmail.com/index
-其中 index 为 cdn 缩写，见 env/cdn.ini 
+    https://your.domain.com/img_gravatar/username@gmail.com/index
+    其中 index 为 cdn 缩写，见 env/cdn.ini 
 
 2. Bing 必应美图
-https://< your-domain >/img_bing
+
+    https://your.domain.com/img_bing
 
 ### 手气不错
     
-https://< your-domain >/sms_x
+https://your.domain.com/sms_x
 从 env/link.ini 随机抽取一条链接
 
 ## 安装使用
@@ -75,12 +93,9 @@ https://< your-domain >/sms_x
 
 ```url
 
-完整链接：https://< your-domain >/1_3/5_7/9?11
-
+完整链接：https://your.domain.com/1_3/5_7/9?11
 请求部分：/1_3/5_7/9?11
-
 正则分割：$URL
-
 Array ( 
     [0] => /1_3/5_7/9?11 
     [1] => 1 
@@ -95,9 +110,7 @@ Array (
     [10] => ? 
     [11] => 11 
 )
-
 组合变量：$URLs
-
 Array ( 
     [0] => 1_3/5_7/9
     [1] => 1_3 
@@ -106,7 +119,6 @@ Array (
     [4] => /5_7/9
     [5] => ?11 
 )
-
 ```
 
 2. 从 env/link.ini 中逐一匹配 1_3 ，无则从 1、3、... 分级进行自定义处理。生成 $DataT 字符串
@@ -125,7 +137,7 @@ Array (
         $DataT = ....... ;
     }else{
         switch ( xxx ){
-        case ' xxx ':
+        case 'xxx':
             $DataT = ....... ;
             break;
         default:
@@ -137,9 +149,16 @@ Array (
 3. 判断 $DataT 字符串数据类型，并进一步处理输出数据
 
 ```type
-$DataT = "http://" / "text:" / "image:" / "mailto:" / ... xxx ... 
+$DataT = "http:" / "text:" / "image:" / "mailto:" / ... xxx ... 
     链接(link) / 文本(text) / 图片(image) / 邮箱(mail)
 ```
 
 4. 使用自定义模板输出数据
 
+# 一些说明
+
+作者大三土木狗，码字属业余爱好，编程能力有限，故代码会显得十分混乱，不建议直接使用。
+
+目前能满足自己各类需求，可能不会再更新了，也许吧(?)
+
+如有更好实现或项目，欢迎与我交流。
