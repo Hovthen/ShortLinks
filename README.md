@@ -30,46 +30,18 @@ _____   _   _   _____   _____    _____        _       _   __   _   _   _    ____
         => two.host.com/one.html
 ```
 
-## 已实现功能
-
-### 调试模式
-
-在网址链接后加入 debug=hovthen 参数
-
-### QQ相关
-
-1. QQ头像
-
-（隐藏QQ）https://your.domain.com/qq_user/head_[QQNun]
-
-（显示QQ）https://your.domain.com/img_qq/[QQNun]
-    
-2. QQ头像Key
-    
-https://your.domain.com/qq_user/key_[QQNun]
-    
-### 图片相关
-    
-1. Gravatar 头像
-
-    https://your.domain.com/img_gravatar/username@gmail.com/index
-    其中 index 为 cdn 缩写，见 env/cdn.ini 
-
-2. Bing 必应美图
-
-    https://your.domain.com/img_bing
-
-### 手气不错
-    
-https://your.domain.com/sms_x
-从 env/link.ini 随机抽取一条链接
-
 ## 安装使用
 
 1. 将所有文件下载并上传到网站根目录
 2. 设置伪静态现则
-3. 根据你的需求修改 index.php 及 env/xxx.ini 文件/代码内容
-4. 访问你的网站域名查看效果
+  ```Nginx
+if (!-e $request_filename) {
+	rewrite ^/(?!.well-known)(.*)$ /index.php?$1 last;
+}
+  ```
+
+4. 根据你的需求修改 index.php 及 env/xxx.ini 文件/代码内容
+5. 访问你的网站域名查看效果
 
 ## 文件结构
 
