@@ -61,6 +61,9 @@ if (!-e $request_filename) {
     ╟─ text.ini      # 文本类型数据展示
     ╟─ ....          # 根据自己需求添加，记得写入 env/file.ini
     ║
+    ╟/ Demo    # 示例文件夹
+    ╟─ ....          # 应用于博客或其他程序等的页面模板
+    ║
     ╟ index.php    # 入口文件及处理
     ╟ favicon.ico  # 网页Logo
     ╙ readme.md    # 你目前正在看的说明文件
